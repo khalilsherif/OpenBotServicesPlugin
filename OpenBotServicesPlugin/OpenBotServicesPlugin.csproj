@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05A4892B-21ED-4F6C-8529-F65685581563}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenBotServicesPlugin</RootNamespace>
+    <AssemblyName>OpenBotServicesPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenBotPluginCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OpenBotPluginCommon\OpenBotPluginCommon\bin\Debug\OpenBotPluginCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers\BasicChatHandler.cs" />
+    <Compile Include="Handlers\Forms\frmBasicChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Forms\frmBasicChat.Designer.cs">
+      <DependentUpon>frmBasicChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\SongRequestHandler.cs" />
+    <Compile Include="OpenBotServicesPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AbstractVideoFilter.cs" />
+    <Compile Include="Handlers\Factories\SongRequestFactory.cs" />
+    <Compile Include="Services\Filters\AbstractFilter.cs" />
+    <Compile Include="Services\Filters\BeginsWithChannelNameFilter.cs" />
+    <Compile Include="Services\Filters\BeginsWithTitleFilter.cs" />
+    <Compile Include="Services\Filters\CategoryFilter.cs" />
+    <Compile Include="Services\Filters\CommentFilter.cs" />
+    <Compile Include="Services\Filters\ContainsChannelNameFilter.cs" />
+    <Compile Include="Services\Filters\ContainsTitleFilter.cs" />
+    <Compile Include="Services\Filters\DateFilter.cs" />
+    <Compile Include="Services\Filters\DislikeFilter.cs" />
+    <Compile Include="Services\Filters\DurationFilter.cs" />
+    <Compile Include="Services\Filters\EndsWithChannelNameFilter.cs" />
+    <Compile Include="Services\Filters\EndsWithTitleFilter.cs" />
+    <Compile Include="Services\Filters\ExactChannelNameFilter.cs" />
+    <Compile Include="Services\Filters\ExactTitleFilter.cs" />
+    <Compile Include="Services\Filters\LicenseFilter.cs" />
+    <Compile Include="Services\Filters\LikeFilter.cs" />
+    <Compile Include="Services\Filters\VideoIdFilter.cs" />
+    <Compile Include="Services\Filters\ViewFilter.cs" />
+    <Compile Include="Services\Helpers\YoutubeAPIHelper.cs" />
+    <Compile Include="Services\Interfaces\IVideoFilter.cs" />
+    <Compile Include="Services\Models\VideoRequest.cs" />
+    <Compile Include="Services\Models\VideoInformation.cs" />
+    <Compile Include="Services\OBSStreamStatusService.cs" />
+    <Compile Include="Services\OpenBotCurrencyService.cs" />
+    <Compile Include="Services\ScheduledEventService.cs" />
+    <Compile Include="Services\SongRequestService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Handlers\Forms\frmBasicChat.resx">
+      <DependentUpon>frmBasicChat.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
